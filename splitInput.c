@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * splitInput - Découpe une ligne en arguments.
- * @inputLine: La ligne à découper.
- * @argCount: Pointeur vers la variable qui stockera le nombre d'arguments
- * Return: Un tableau d'arguments.
+ * splitInput - Splits a line into arguments.
+ * @inputLine: The line to split.
+ * @argCount: Pointer to the variable that will store the number of arguments.
+ * Return: An array of arguments.
  */
 char **splitInput(char *inputLine, int *argCount)
 {
