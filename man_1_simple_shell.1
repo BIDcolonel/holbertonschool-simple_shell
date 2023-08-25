@@ -1,0 +1,139 @@
+.TH hsh 1 "August 22, 2023" "v1.0" "hsh - simple shell man page"
+
+.SH NAME
+
+.B hsh
+- command line interpreter, simple shell
+
+.SH SYNOPSIS
+
+.B  ./hsh
+.I [no options included]
+.SH DESCRIPTION
+\fBhsh\fR, is a simplified variant of a basic UNIX shell, with a minimalist approach to development. Its primary aim is to provide only the essential functions of a shell, inspired by the elaborate basic model. It has been designed, compiled and tested in the Ubuntu 20.04 LTS environment.
+
+.SH OVERVIEW
+In a same way as other command-line interfaces, \fBhsh\fR accepts commands from either the terminal or scripts, both directly and indirectly (via a pipe), and executes them in the order they are presented.
+
+.SH INVOCATION
+Use the GNU Compiler Collection (gcc) for compiling \fBhsh\fR with extra flags as shown:
+
+.P
+.RS
+.B $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+.P
+.RE
+.B - Interactive mode:
+
+.RS
+\fBhsh\fR works by taking user input on the terminal. Note that the prompt ($) will appear and you will then be in interactive mode and able to enter commands followed by "enter."
+.RE
+
+.P
+.RS
+.B $ ./hsh
+.P
+.RE
+.B - Non-interactive mode:
+
+.RS
+Users can specify shell scripts to be executed by \fBhsh\fR usually through the use of pipes '|'.
+.RE
+
+.P
+.RS
+.B $ echo \/"ls -l\/" | ./hsh
+.RE
+
+.SH EXECUTABLES
+If the first character of the command is a slash (/), the shell search for it in the list of shell builtins.
+If there exists a shell builtin by that name, the builtin is invoked.
+
+.RS
+.B $ /bin/pwd
+.br
+.B /Users/Documents/holbertonschool-simple_shell
+.br
+.B $
+.RE
+
+If not then the shell will search in the user PATH environment if the command exist.
+
+.RS
+.B $ pwd
+.br
+.B /Users/Documents/holbertonschool-simple_shell
+.br
+.B $
+.RE
+
+.SH BUILTINS
+The following builtin commands are supported:
+
+.RS
+.B ls
+- displays the contents of the current directory
+.br
+.RS
+.B env
+- prints the environment variables
+.br
+.B exit
+- exits the program
+.RE
+
+Example of builtin command:
+
+.RS
+$ env
+.br
+SHELL=/bin/bash
+.br
+PWD=/root
+.br
+LOGNAME=root
+.br
+HOME=/root
+.br
+LANG=C.UTF-8
+.br
+LESSOPEN=| /usr/bin/lesspipe %s
+.br
+USER=root
+.br
+SHLVL=1
+.br
+XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
+.br
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+.br
+:/usr/games:/usr/local/games:/snap/bin
+.br
+MAIL=/var/mail/root
+.br
+_=/usr/bin/env
+$
+.br
+\& $
+.RE
+
+.SH EXIT
+\fBhsh\fR returns the exit status of the last command executed, unless a syntax error occurs, with zero indicating success and non-zero indicating failure.
+
+All builtins return 0 on success and 1 or 2 on failure (indicated by a corresponding error message).
+
+.SH BUGS
+Exit returns - Memory leak
+
+.SH AUTHORS
+Tartar Mickaël (https://github.com/mickaeltartar)
+.br
+Boudier Christophe (https://github.com/BIDcolonel)
+
+.SH LICENSE
+.PP
+This program is distributed under the MIT license embedded in the files.
+
+.SH VERSIONS
+.B hsh
+V1.0
