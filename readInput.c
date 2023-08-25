@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * readInput - Lit une ligne d'entrée depuis stdin.
- * Return: La ligne lue.
+ * readInput - Reads an input line from stdin.
+ * Return: The line read
  */
 char *readInput(void)
 {
