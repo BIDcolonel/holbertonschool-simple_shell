@@ -52,6 +52,8 @@ Here we have coded a simple shell that was asked in the holberton school curricu
 | README.md | File containing information about other files in the same directory. |
 | shell.c | Implements a basic shell program with functions to print the prompt, tokenize input, handle "cd" commands, and execute external commands. The main function runs the shell's main loop. |
 | shell.h | Header file with function declarations and includes needed for the shell program. |
+| readInput.c | Reads a line of text from standard input, dynamically allocating memory to store it. Removes the newline character and returns the input line. |
+| splitInput.c | Takes an input line and breaks it into individual arguments using space as the delimiter. Dynamically allocates memory for an array of argument strings. Updates the argument count and returns the array. |
 
 
 ## Compilation
